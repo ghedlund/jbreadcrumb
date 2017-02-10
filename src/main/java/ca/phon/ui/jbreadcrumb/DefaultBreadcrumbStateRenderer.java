@@ -51,13 +51,13 @@ public class DefaultBreadcrumbStateRenderer<S, V> extends JLabel implements Brea
 		setFont(viewer.getFont());
 		setText(value.toString());
 		
-		if(stateIdx == viewer.getBreadcrumb().size()-1) {
+		if(stateIdx == 0) {
 			setBorder(new BreadcrumbStateBorder(false));
 		} else {
 			setBorder(new BreadcrumbStateBorder());
 		}
 		
-		if(stateIdx == 0) {
+		if(stateIdx == viewer.getBreadcrumb().size()-1) {
 			setBackground(viewer.getCurrentStateBackground());
 			setForeground(viewer.getCurrentStateForeground());
 		} else {

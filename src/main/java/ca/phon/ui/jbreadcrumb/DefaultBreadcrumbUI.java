@@ -49,11 +49,11 @@ public class DefaultBreadcrumbUI extends BreadcrumbUI {
 	static { installDefaults(); }
 	
 	private static void installDefaults() {
-		UIManager.getDefaults().put(BREADCRUMB_BACKGROUND, UIManager.getColor("Panel.background"));
-		UIManager.getDefaults().put(CURRENT_STATE_BACKGROUND, UIManager.getColor("List.selectionBackground"));
-		UIManager.getDefaults().put(CURRENT_STATE_FOREGROUND, UIManager.getColor("List.selectionForeground"));
-		UIManager.getDefaults().put(STATE_BACKGROUND, UIManager.getColor("Button.background"));
-		UIManager.getDefaults().put(STATE_FOREGROUND, UIManager.getColor("Button.foreground"));
+		UIManager.put(BREADCRUMB_BACKGROUND, UIManager.getColor("Panel.background"));
+		UIManager.put(CURRENT_STATE_BACKGROUND, UIManager.getColor("List.selectionBackground"));
+		UIManager.put(CURRENT_STATE_FOREGROUND, UIManager.getColor("List.selectionForeground"));
+		UIManager.put(STATE_BACKGROUND, UIManager.getColor("Button.background"));
+		UIManager.put(STATE_FOREGROUND, UIManager.getColor("Button.foreground"));
 	}
 		
 	private JBreadcrumb<? super Object, ? super Object> jBreadcrumb;
@@ -77,8 +77,8 @@ public class DefaultBreadcrumbUI extends BreadcrumbUI {
 		jBreadcrumb.setStateBackground(UIManager.getColor(STATE_BACKGROUND));
 		jBreadcrumb.setStateForeground(UIManager.getColor(STATE_FOREGROUND));
 		
-		jBreadcrumb.setCurrentStateForeground(UIManager.getColor(CURRENT_STATE_BACKGROUND));
-		jBreadcrumb.setCurrentStateBackground(UIManager.getColor(CURRENT_STATE_FOREGROUND));
+		jBreadcrumb.setCurrentStateForeground(UIManager.getColor(CURRENT_STATE_FOREGROUND));
+		jBreadcrumb.setCurrentStateBackground(UIManager.getColor(CURRENT_STATE_BACKGROUND));
 		
 		jBreadcrumb.addMouseListener(mouseInputAdapter);
 		jBreadcrumb.addPropertyChangeListener("model", (e) -> 
