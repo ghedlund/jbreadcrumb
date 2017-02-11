@@ -35,8 +35,18 @@ public class BreadcrumbEvent<S, V> {
 	
 	private S state;
 	
+	/**
+	 * Used for GOTO_STATE events, <code>null</code> otherwise
+	 */
+	private S oldState;
+	
 	private V value;
 	
+	/**
+	 * Used for GOTO_STATE events, <code>null</code> otherwise
+	 */
+	private V oldValue; 
+
 	private int stateIndex;
 	
 	private BreadcrumbEventType eventType = BreadcrumbEventType.GOTO_STATE;
@@ -44,14 +54,21 @@ public class BreadcrumbEvent<S, V> {
 	public BreadcrumbEvent() {
 		super();
 	}
-
+	
 	public BreadcrumbEvent(Breadcrumb<S, V> breadcrumb, S state, V value, int stateIndex,
+			BreadcrumbEventType eventType) {
+		this(breadcrumb, state, value, stateIndex, null, null, eventType);
+	}
+
+	public BreadcrumbEvent(Breadcrumb<S, V> breadcrumb, S state, V value, int stateIndex, S oldState, V oldValue, 
 			BreadcrumbEventType eventType) {
 		super();
 		this.breadcrumb = breadcrumb;
 		this.state = state;
 		this.value = value;
 		this.stateIndex = stateIndex;
+		this.oldState = oldState;
+		this.oldValue = oldValue;
 		this.eventType = eventType;
 	}
 
@@ -85,6 +102,22 @@ public class BreadcrumbEvent<S, V> {
 
 	public void setStateIndex(int stateIndex) {
 		this.stateIndex = stateIndex;
+	}
+
+	public S getOldState() {
+		return oldState;
+	}
+
+	public void setOldState(S oldState) {
+		this.oldState = oldState;
+	}
+
+	public V getOldValue() {
+		return oldValue;
+	}
+
+	public void setOldValue(V oldValue) {
+		this.oldValue = oldValue;
 	}
 
 	public BreadcrumbEventType getEventType() {

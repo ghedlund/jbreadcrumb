@@ -164,7 +164,7 @@ public class DefaultBreadcrumbUI extends BreadcrumbUI {
 			final Breadcrumb<Object, Object> breadcrumb = jBreadcrumb.getBreadcrumb();
 			for(int i = 0; i < stateRects.size(); i++) {
 				if(stateRects.get(i).contains(p)) {
-					breadcrumb.gotoState(breadcrumb.getStates().get(breadcrumb.size()-(i+1)));
+					breadcrumb.gotoState(breadcrumb.getStates().get(i));
 					break;
 				}
 			}

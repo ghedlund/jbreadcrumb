@@ -133,7 +133,7 @@ public class Breadcrumb<S, V> extends Stack<S> {
 		S oldState = getCurrentState();
 		
 		if(!containsState(state)) return;
-		while(!isEmpty() && getCurrentState() != state) popState();
+		while(!isEmpty() && getCurrentState() != state) valueMap.remove(super.pop());
 		
 		fireStateChanged(oldState, state);
 	}
@@ -252,7 +252,8 @@ public class Breadcrumb<S, V> extends Stack<S> {
 			int stateIdx = getIndexOfState(newState);
 			if(stateIdx >= 0) {
 				final BreadcrumbEvent<S, V> evt = 
-						new BreadcrumbEvent<>(this, newState, valueMap.get(get(stateIdx)), stateIdx, BreadcrumbEventType.GOTO_STATE);
+						new BreadcrumbEvent<>(this, newState, valueMap.get(get(stateIdx)), 
+								stateIdx, oldState, valueMap.get(oldState), BreadcrumbEventType.GOTO_STATE);
 				for(BreadcrumbListener<S, V> listener : listeners)
 					listener.breadCrumbEvent(evt);
 			}
