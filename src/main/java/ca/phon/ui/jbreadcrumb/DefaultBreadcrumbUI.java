@@ -49,11 +49,11 @@ public class DefaultBreadcrumbUI extends BreadcrumbUI {
 	static { installDefaults(); }
 	
 	private static void installDefaults() {
-		UIManager.put(BREADCRUMB_BACKGROUND, UIManager.getColor("Panel.background"));
-		UIManager.put(CURRENT_STATE_BACKGROUND, UIManager.getColor("List.selectionBackground"));
-		UIManager.put(CURRENT_STATE_FOREGROUND, UIManager.getColor("List.selectionForeground"));
-		UIManager.put(STATE_BACKGROUND, UIManager.getColor("Button.background"));
-		UIManager.put(STATE_FOREGROUND, UIManager.getColor("Button.foreground"));
+		UIManager.getDefaults().put(BREADCRUMB_BACKGROUND, UIManager.getColor("Panel.background"));
+		UIManager.getDefaults().put(CURRENT_STATE_BACKGROUND, UIManager.getColor("List.selectionBackground"));
+		UIManager.getDefaults().put(CURRENT_STATE_FOREGROUND, UIManager.getColor("List.selectionForeground"));
+		UIManager.getDefaults().put(STATE_BACKGROUND, UIManager.getColor("Button.background"));
+		UIManager.getDefaults().put(STATE_FOREGROUND, UIManager.getColor("Button.foreground"));
 	}
 		
 	private JBreadcrumb<? super Object, ? super Object> jBreadcrumb;
@@ -99,7 +99,7 @@ public class DefaultBreadcrumbUI extends BreadcrumbUI {
 		g.fillRect(0, 0, jBreadcrumb.getWidth(), jBreadcrumb.getHeight());
 		
 		final Breadcrumb<Object, Object> breadcrumb = jBreadcrumb.getBreadcrumb();
-		synchronized(jBreadcrumb.getBreadcrumb()) {
+		synchronized(breadcrumb) {
 			final BreadcrumbStateRenderer<Object, Object> stateRenderer = jBreadcrumb.getStateRenderer();
 			
 			int x = 0;
