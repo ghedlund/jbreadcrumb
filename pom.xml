@@ -19,14 +19,6 @@
     </developer>
   </developers>
   
-  <licenses>
-    <license>
-      <name>GNU GPL v3.0+</name>
-      <distribution>repo</distribution>
-      <url>http://www.gnu.org/copyleft/gpl.html</url>
-    </license>
-  </licenses>
-
   <distributionManagement>
     <repository>
       <id>phon.ca-release</id>
