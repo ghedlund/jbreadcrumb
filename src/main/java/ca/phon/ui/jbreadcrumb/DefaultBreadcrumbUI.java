@@ -157,6 +157,7 @@ public class DefaultBreadcrumbUI extends BreadcrumbUI {
 
 		@Override
 		public void mouseClicked(MouseEvent e) {
+			if(!jBreadcrumb.isEnabled()) return;
 			final Point p = e.getPoint();
 			final Breadcrumb<Object, Object> breadcrumb = jBreadcrumb.getBreadcrumb();
 			for(int i = 0; i < stateRects.size(); i++) {
@@ -169,13 +170,13 @@ public class DefaultBreadcrumbUI extends BreadcrumbUI {
 
 		@Override
 		public void mouseDragged(MouseEvent e) {
-			// TODO Auto-generated method stub
+			if(!jBreadcrumb.isEnabled()) return;
 			super.mouseDragged(e);
 		}
 
 		@Override
 		public void mouseMoved(MouseEvent e) {
-			// TODO Auto-generated method stub
+			if(!jBreadcrumb.isEnabled()) return;
 			super.mouseMoved(e);
 		}
 		
