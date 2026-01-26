@@ -28,7 +28,7 @@ public interface BreadcrumbListener<S, V> {
 	/**
 	 * Called when a BreadcrumbEvent occurs.
 	 * 
-	 * @param event
+	 * @param event  the breadcrumb event
 	 */
 	public void breadCrumbEvent(BreadcrumbEvent<S, V> event);
 	

@@ -36,14 +36,22 @@ public class JBreadcrumb<S, V> extends JComponent implements Scrollable {
 	
 	private static final long serialVersionUID = 4673118307259766794L;
 
+	/** UI class identifier */
 	public final static String uiClassId = "BreadcrumbUI";
 
 	/** The {@link Breadcrumb} this component is viewing */
 	private Breadcrumb<S, V> breadcrumb;
 	
+	/** Background color for non-current states */
 	private Color stateBackground;
+	
+	/** Foreground color for non-current states */
 	private Color stateForeground;
+	
+	/** Background color for the current state */
 	private Color currentStateBackground;
+	
+	/** Foreground color for the current state */
 	private Color currentStateForeground;
 	
 	/** State renderer */
@@ -63,10 +71,20 @@ public class JBreadcrumb<S, V> extends JComponent implements Scrollable {
 		setOpaque(true);
 	}
 
+	/**
+	 * Gets the breadcrumb UI for this component.
+	 * 
+	 * @return the breadcrumb UI
+	 */
 	public BreadcrumbUI getBreadcrumbViewerUI() {
 		return (BreadcrumbUI) ui;
 	}
 
+	/**
+	 * Sets the breadcrumb UI for this component.
+	 * 
+	 * @param ui  the UI to set
+	 */
 	public void setUI(BreadcrumbUI ui) {
         super.setUI(ui);
     }
@@ -81,40 +99,80 @@ public class JBreadcrumb<S, V> extends JComponent implements Scrollable {
 		}
 	}
 	
+	/**
+	 * Gets the background color for the current state.
+	 * 
+	 * @return the current state background color
+	 */
 	public Color getCurrentStateBackground() {
 		return currentStateBackground;
 	}
 	
+	/**
+	 * Gets the background color for non-current states.
+	 * 
+	 * @return the state background color
+	 */
 	public Color getStateBackground() {
 		return stateBackground;
 	}
 
+	/**
+	 * Sets the background color for non-current states.
+	 * 
+	 * @param stateBackground  the background color to set
+	 */
 	public void setStateBackground(Color stateBackground) {
 		final Color oldBackground = this.stateBackground;
 		this.stateBackground = stateBackground;
 		firePropertyChange("stateBackground", oldBackground, stateBackground);
 	}
 
+	/**
+	 * Gets the foreground color for non-current states.
+	 * 
+	 * @return the state foreground color
+	 */
 	public Color getStateForeground() {
 		return stateForeground;
 	}
 
+	/**
+	 * Sets the foreground color for non-current states.
+	 * 
+	 * @param stateForeground  the foreground color to set
+	 */
 	public void setStateForeground(Color stateForeground) {
 		final Color oldForeground = this.stateForeground;
 		this.stateForeground = stateForeground;
 		firePropertyChange("stateForeground", oldForeground, stateForeground);
 	}
 
+	/**
+	 * Sets the background color for the current state.
+	 * 
+	 * @param selectionBackground  the background color to set
+	 */
 	public void setCurrentStateBackground(Color selectionBackground) {
 		final Color oldBackground = this.currentStateBackground;
 		this.currentStateBackground = selectionBackground;
 		firePropertyChange("currentStateBackround", oldBackground, selectionBackground);
 	}
 
+	/**
+	 * Gets the foreground color for the current state.
+	 * 
+	 * @return the current state foreground color
+	 */
 	public Color getCurrentStateForeground() {
 		return currentStateForeground;
 	}
 
+	/**
+	 * Sets the foreground color for the current state.
+	 * 
+	 * @param selectionForeground  the foreground color to set
+	 */
 	public void setCurrentStateForeground(Color selectionForeground) {
 		final Color oldForeground = this.currentStateForeground;
 		this.currentStateForeground = selectionForeground;
@@ -130,10 +188,20 @@ public class JBreadcrumb<S, V> extends JComponent implements Scrollable {
 		return breadcrumb;
 	}
 	
+	/**
+	 * Gets the state renderer for this breadcrumb.
+	 * 
+	 * @return the state renderer
+	 */
 	public BreadcrumbStateRenderer<? super S, ? super V> getStateRenderer() {
 		return this.stateRenderer;
 	}
 	
+	/**
+	 * Sets the state renderer for this breadcrumb.
+	 * 
+	 * @param renderer  the renderer to set
+	 */
 	public void setStateRenderer(BreadcrumbStateRenderer<? super S, ? super V> renderer) {
 		final BreadcrumbStateRenderer<? super S, ? super V> oldRenderer = this.stateRenderer;
 		this.stateRenderer = renderer;

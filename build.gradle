@@ -1,0 +1,68 @@
+plugins {
+    id 'java-library'
+    id 'maven-publish'
+}
+
+group = 'ca.phon'
+version = '5'
+
+repositories {
+    mavenCentral()
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(25)
+    }
+    withSourcesJar()
+    withJavadocJar()
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from components.java
+            
+            pom {
+                name = 'phon-jbreadcrumb'
+                description = 'Breadcrumb component for Java Swing'
+                url = 'https://github.com/ghedlund/jbreadcrumb'
+                
+                organization {
+                    name = 'Department of Linguistics, Memorial University of Newfoundland'
+                    url = 'https://www.mun.ca'
+                }
+                
+                developers {
+                    developer {
+                        id = 'ghedlund'
+                        name = 'Greg Hedlund'
+                        email = 'ghedlund@mun.ca'
+                        timezone = '-3.5'
+                    }
+                }
+                
+                scm {
+                    connection = 'scm:git:git://github.com/ghedlund/jbreadcrumb.git'
+                    developerConnection = 'scm:git:ssh://github.com:ghedlund/jbreadcrumb.git'
+                    url = 'https://github.com/ghedlund/jbreadcrumb'
+                }
+            }
+        }
+    }
+    
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/ghedlund/jbreadcrumb")
+            credentials {
+                username = System.getenv("GITHUB_ACTOR")
+                password = System.getenv("GITHUB_TOKEN")
+            }
+        }
+    }
+}

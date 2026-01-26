@@ -25,6 +25,16 @@ import javax.swing.JComponent;
  */
 public interface BreadcrumbStateRenderer<S, V> {
 
+	/**
+	 * Creates a component to render the state in the breadcrumb.
+	 * 
+	 * @param viewer  the breadcrumb viewer
+	 * @param stateIdx  the index of the state
+	 * @param state  the state to render
+	 * @param value  the value associated with the state
+	 * @param hasFocus  whether the state has focus
+	 * @return the component for rendering the state
+	 */
 	public JComponent createStateComponent(JBreadcrumb<S, V> viewer, int stateIdx,
 			S state, V value, boolean hasFocus);
 	

@@ -39,25 +39,44 @@ import javax.swing.border.Border;
  */
 public class BreadcrumbStateBorder implements Border {
 
+	/** Default top inset value */
 	public final static int TOP_INSET = 5;
 	private int topInset;
 	
+	/** Default bottom inset value */
 	public final static int BOTTOM_INSET = 5;
 	private int bottomInset;
 	
+	/** Default arrow width value */
 	public final static int ARROW_WIDTH = 5;
 	private int arrowWidth;
 	
 	private boolean drawTail;
 	
+	/**
+	 * Creates a new breadcrumb state border with default settings.
+	 */
 	public BreadcrumbStateBorder() {
 		this(TOP_INSET, BOTTOM_INSET, ARROW_WIDTH, true);
 	}
 	
+	/**
+	 * Creates a new breadcrumb state border.
+	 * 
+	 * @param drawTail  whether to draw the tail arrow
+	 */
 	public BreadcrumbStateBorder(boolean drawTail) {
 		this(TOP_INSET, BOTTOM_INSET, ARROW_WIDTH, drawTail);
 	}
 	
+	/**
+	 * Creates a new breadcrumb state border with custom settings.
+	 * 
+	 * @param topInset  the top inset
+	 * @param bottomInset  the bottom inset
+	 * @param arrowWidth  the arrow width
+	 * @param drawTail  whether to draw the tail arrow
+	 */
 	public BreadcrumbStateBorder(int topInset, int bottomInset, int arrowWidth, boolean drawTail) {
 		super();
 		this.topInset = topInset;
@@ -66,34 +85,74 @@ public class BreadcrumbStateBorder implements Border {
 		this.drawTail = drawTail;
 	}
 	
+	/**
+	 * Gets the top inset.
+	 * 
+	 * @return the top inset
+	 */
 	public int getTopInset() {
 		return topInset;
 	}
 
+	/**
+	 * Sets the top inset.
+	 * 
+	 * @param topInset  the top inset to set
+	 */
 	public void setTopInset(int topInset) {
 		this.topInset = topInset;
 	}
 
+	/**
+	 * Gets the bottom inset.
+	 * 
+	 * @return the bottom inset
+	 */
 	public int getBottomInset() {
 		return bottomInset;
 	}
 
+	/**
+	 * Sets the bottom inset.
+	 * 
+	 * @param bottomInset  the bottom inset to set
+	 */
 	public void setBottomInset(int bottomInset) {
 		this.bottomInset = bottomInset;
 	}
 
+	/**
+	 * Gets the arrow width.
+	 * 
+	 * @return the arrow width
+	 */
 	public int getArrowWidth() {
 		return arrowWidth;
 	}
 
+	/**
+	 * Sets the arrow width.
+	 * 
+	 * @param arrowWidth  the arrow width to set
+	 */
 	public void setArrowWidth(int arrowWidth) {
 		this.arrowWidth = arrowWidth;
 	}
 
+	/**
+	 * Gets whether the tail arrow is drawn.
+	 * 
+	 * @return true if tail is drawn, false otherwise
+	 */
 	public boolean isDrawTail() {
 		return drawTail;
 	}
 
+	/**
+	 * Sets whether the tail arrow is drawn.
+	 * 
+	 * @param drawTail  true to draw tail, false otherwise
+	 */
 	public void setDrawTail(boolean drawTail) {
 		this.drawTail = drawTail;
 	}

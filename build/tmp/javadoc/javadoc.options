@@ -1,0 +1,18 @@
+--module-path '/Users/ghedlund/Documents/Phon/gitprojects/jbreadcrumb/build/classes/java/main'
+-d '/Users/ghedlund/Documents/Phon/gitprojects/jbreadcrumb/build/docs/javadoc'
+-doctitle 'jbreadcrumb 5 API'
+-notimestamp 
+-quiet 
+-windowtitle 'jbreadcrumb 5 API'
+'/Users/ghedlund/Documents/Phon/gitprojects/jbreadcrumb/src/main/java/module-info.java'
+'/Users/ghedlund/Documents/Phon/gitprojects/jbreadcrumb/src/main/java/ca/phon/ui/jbreadcrumb/BreadcrumbEvent.java'
+'/Users/ghedlund/Documents/Phon/gitprojects/jbreadcrumb/src/main/java/ca/phon/ui/jbreadcrumb/BreadcrumbButton.java'
+'/Users/ghedlund/Documents/Phon/gitprojects/jbreadcrumb/src/main/java/ca/phon/ui/jbreadcrumb/BreadcrumbListener.java'
+'/Users/ghedlund/Documents/Phon/gitprojects/jbreadcrumb/src/main/java/ca/phon/ui/jbreadcrumb/DefaultBreadcrumbUI.java'
+'/Users/ghedlund/Documents/Phon/gitprojects/jbreadcrumb/src/main/java/ca/phon/ui/jbreadcrumb/BreadcrumbStateRenderer.java'
+'/Users/ghedlund/Documents/Phon/gitprojects/jbreadcrumb/src/main/java/ca/phon/ui/jbreadcrumb/JBreadcrumb.java'
+'/Users/ghedlund/Documents/Phon/gitprojects/jbreadcrumb/src/main/java/ca/phon/ui/jbreadcrumb/JBreadcrumbScrollPane.java'
+'/Users/ghedlund/Documents/Phon/gitprojects/jbreadcrumb/src/main/java/ca/phon/ui/jbreadcrumb/BreadcrumbUI.java'
+'/Users/ghedlund/Documents/Phon/gitprojects/jbreadcrumb/src/main/java/ca/phon/ui/jbreadcrumb/Breadcrumb.java'
+'/Users/ghedlund/Documents/Phon/gitprojects/jbreadcrumb/src/main/java/ca/phon/ui/jbreadcrumb/BreadcrumbStateBorder.java'
+'/Users/ghedlund/Documents/Phon/gitprojects/jbreadcrumb/src/main/java/ca/phon/ui/jbreadcrumb/DefaultBreadcrumbStateRenderer.java'

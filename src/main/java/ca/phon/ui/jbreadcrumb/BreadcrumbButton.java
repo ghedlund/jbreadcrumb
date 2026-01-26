@@ -37,6 +37,9 @@ public class BreadcrumbButton extends JButton {
 
 	private static final long serialVersionUID = -1736113253724309947L;
 
+	/**
+	 * Creates a new BreadcrumbButton.
+	 */
 	public BreadcrumbButton() {
 		super();
 		

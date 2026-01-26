@@ -25,7 +25,7 @@ import java.util.Stack;
 import ca.phon.ui.jbreadcrumb.BreadcrumbEvent.BreadcrumbEventType;
 
 /**
- * A BredCrumb maintains a linear navigation history.
+ * A Breadcrumb maintains a linear navigation history.
  * 
  * @param <S>  the type of state
  * @param <V>  the type of value associated with a state 
@@ -37,6 +37,13 @@ public class Breadcrumb<S, V> extends Stack<S> {
 	/** The values stack */
 	private LinkedHashMap<S, V> valueMap = new LinkedHashMap<>();
 
+	/**
+	 * Creates a new empty Breadcrumb.
+	 */
+	public Breadcrumb() {
+		super();
+	}
+	
 	/**
 	 * Gets whether or not the breadcrumb contains a state.
 	 * 
@@ -70,7 +77,7 @@ public class Breadcrumb<S, V> extends Stack<S> {
 	/**
 	 * Index of given state
 	 * 
-	 * @param state
+	 * @param state  the state to find
 	 * @return index of state or -1
 	 */
 	public int getIndexOfState(S state) {
@@ -97,14 +104,16 @@ public class Breadcrumb<S, V> extends Stack<S> {
 	 * @return the state at the given index (from the current state)
 	 * 
 	 * @throws IndexOutOfBoundsException  if the index is out of range (i.e.,
-	 *                                    <code>index < 0 || index > size()</code>  
+	 *                                    {@code index < 0 || index > size()})
 	 */
 	public S peekState(int index) {
 		return super.get(index);
 	}
 
 	/**
-	 * Empties this breadcrumb.
+	 * Removes and returns the current state from this breadcrumb.
+	 * 
+	 * @return the removed state and value as an EntrySet, or null if breadcrumb is empty
 	 */
 	public EntrySet<S, V> popState() {
 		EntrySet<S, V> retVal = null;
@@ -199,7 +208,8 @@ public class Breadcrumb<S, V> extends Stack<S> {
 	/**
 	 * Get value for given state.
 	 * 
-	 * @param S
+	 * @param state  the state to get the value for
+	 * @return the value associated with the state
 	 */
 	public V getValue(S state) {
 		return valueMap.get(state);
@@ -208,7 +218,8 @@ public class Breadcrumb<S, V> extends Stack<S> {
 	/**
 	 * Set value for given state.  The state must already exist.
 	 * 
-	 * @param V
+	 * @param state  the state to set the value for
+	 * @param value  the value to set
 	 */
 	public void setValue(S state, V value) {
 		if(containsState(state))
@@ -219,6 +230,9 @@ public class Breadcrumb<S, V> extends Stack<S> {
 	// Listeners
 	//
 
+	/**
+	 * List of breadcrumb listeners
+	 */
 	private ArrayList<BreadcrumbListener<S, V>> listeners = new ArrayList<BreadcrumbListener<S, V>>();
 
 	/**
@@ -244,6 +258,12 @@ public class Breadcrumb<S, V> extends Stack<S> {
 		}
 	}
 
+	/**
+	 * Fires a state changed event to all registered listeners.
+	 * 
+	 * @param oldState  the previous state
+	 * @param newState  the new current state
+	 */
 	protected void fireStateChanged(S oldState, S newState) {
 		synchronized(listeners) {
 			int stateIdx = getIndexOfState(newState);
@@ -257,6 +277,12 @@ public class Breadcrumb<S, V> extends Stack<S> {
 		}
 	}
 
+	/**
+	 * Fires a state added event to all registered listeners.
+	 * 
+	 * @param state  the state that was added
+	 * @param value  the value associated with the state
+	 */
 	protected void fireStateAdded(S state, V value) {
 		synchronized(listeners) {
 			int index = getIndexOfState(state);
@@ -269,30 +295,62 @@ public class Breadcrumb<S, V> extends Stack<S> {
 		}
 	}
 	
+	/**
+	 * Container class for a state/value pair in a {@link Breadcrumb}.
+	 * 
+	 * @param <S>  the type of state
+	 * @param <V>  the type of value
+	 */
 	public static class EntrySet<S, V> {
 		
 		private S state;
 		
 		private V value;
 		
+		/**
+		 * Creates a new EntrySet with the given state and value.
+		 * 
+		 * @param state  the state
+		 * @param value  the value
+		 */
 		public EntrySet(S state, V  value) {
 			super();
 			this.state = state;
 			this.value = value;
 		}
 
+		/**
+		 * Gets the state.
+		 * 
+		 * @return the state
+		 */
 		public S getState() {
 			return state;
 		}
 
+		/**
+		 * Sets the state.
+		 * 
+		 * @param state  the state to set
+		 */
 		public void setState(S state) {
 			this.state = state;
 		}
 
+		/**
+		 * Gets the value.
+		 * 
+		 * @return the value
+		 */
 		public V getValue() {
 			return value;
 		}
 
+		/**
+		 * Sets the value.
+		 * 
+		 * @param value  the value to set
+		 */
 		public void setValue(V value) {
 			this.value = value;
 		}

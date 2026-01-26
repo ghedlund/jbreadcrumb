@@ -29,8 +29,8 @@ import javax.swing.UIManager;
 import javax.swing.event.MouseInputAdapter;
 
 /**
- * Default UI implementation for {@link JBreadcrumb}
- *
+ * Default UI implementation for {@link JBreadcrumb}. This class provides
+ * the standard look and feel for breadcrumb components.
  */
 public class DefaultBreadcrumbUI extends BreadcrumbUI {
 	
@@ -57,6 +57,13 @@ public class DefaultBreadcrumbUI extends BreadcrumbUI {
 	
 	private final List<Rectangle> stateRects = new ArrayList<>();
 
+	/**
+	 * Creates a new DefaultBreadcrumbUI.
+	 */
+	public DefaultBreadcrumbUI() {
+		super();
+	}
+	
 	@SuppressWarnings("unchecked")
 	@Override
 	public void installUI(JComponent c) {

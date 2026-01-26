@@ -21,12 +21,31 @@ import java.awt.Point;
 import javax.swing.plaf.ComponentUI;
 
 /**
- * Base component UI for {@link JBreadcrumb}
+ * Base component UI for {@link JBreadcrumb}. This class provides the foundation
+ * for implementing custom UI delegates for breadcrumb components.
  */
 public abstract class BreadcrumbUI extends ComponentUI {
 	
+	/**
+	 * Creates a new BreadcrumbUI.
+	 */
+	protected BreadcrumbUI() {
+		super();
+	}
+	
+	/**
+	 * Gets the preferred size for the breadcrumb component.
+	 * 
+	 * @return the preferred size
+	 */
 	public abstract Dimension getPreferredSize();
 	
+	/**
+	 * Converts a point location to a state index.
+	 * 
+	 * @param p  the point to convert
+	 * @return the state index at the given point, or -1 if none
+	 */
 	public abstract int locationToStateIndex(Point p);
 	
 }

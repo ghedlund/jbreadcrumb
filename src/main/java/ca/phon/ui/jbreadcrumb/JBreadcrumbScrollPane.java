@@ -19,10 +19,21 @@ import java.awt.Dimension;
 
 import javax.swing.JScrollPane;
 
+/**
+ * Wrapper for {@link JBreadcrumb} providing scroll capability.
+ * 
+ * @param <S>  the type of state in the breadcrumb
+ * @param <V>  the type of value in the breadcrumb
+ */
 public class JBreadcrumbScrollPane<S, V> extends JScrollPane {
 
 	private static final long serialVersionUID = -5100228671645259582L;
 	
+	/**
+	 * Creates a new scroll pane for the given breadcrumb.
+	 * 
+	 * @param jbreadcrumb  the breadcrumb component to wrap
+	 */
 	public JBreadcrumbScrollPane(JBreadcrumb<S, V> jbreadcrumb) {
 		super(jbreadcrumb);
 		

@@ -28,13 +28,16 @@ import javax.swing.border.Border;
 /**
  * Default {@link Breadcrumb} state renderer.
  *
- * @param <S>
- * @param <V>
+ * @param <S>  the state type
+ * @param <V>  the value type
  */
 public class DefaultBreadcrumbStateRenderer<S, V> extends JLabel implements BreadcrumbStateRenderer<S, V> {
 	
 	private static final long serialVersionUID = 2519454994582489644L;
 	
+	/**
+	 * Creates a new default breadcrumb state renderer.
+	 */
 	public DefaultBreadcrumbStateRenderer() {
 		super();
 		
